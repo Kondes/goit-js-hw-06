@@ -19,7 +19,7 @@ console.log(getUserNames(users));
 // Получить массив объектов пользователей по цвету глаз (поле eyeColor).
 
 const getUsersWithEyeColor = (users, color) => {
-  return users.filter(user => color == user.eyeColor);
+  return users.filter(user => color === user.eyeColor);
 };
 console.log(getUsersWithEyeColor(users, 'blue')); // [объект Moore Hensley, объект Sharlene Bush, объект Carey Barr]
 
@@ -30,7 +30,7 @@ console.log(getUsersWithEyeColor(users, 'blue')); // [объект Moore Hensley
 // // Получить массив имен пользователей по полу (поле gender).
 
 const getUsersWithGender = (users, gender) => {
-  return users.filter(user => gender == user.gender).map(user => user.name);
+  return users.filter(user => gender === user.gender).map(user => user.name);
 };
 
 console.log(getUsersWithGender(users, 'male')); // [ 'Moore Hensley', 'Ross Vazquez', 'Carey Barr', 'Blackburn Dotson' ]
@@ -54,7 +54,7 @@ console.log(getInactiveUsers(users)); // [объект Moore Hensley, объек
 // Получить пользоваля (не массив) по email (поле email, он уникальный).
 
 const getUserWithEmail = (users, email) => {
-  return users.filter(user => email === user.email);
+  return users.find(user => email === user.email);
 };
 
 console.log(getUserWithEmail(users, 'shereeanthony@kog.com')); // {объект пользователя Sheree Anthony}
@@ -68,7 +68,7 @@ console.log(getUserWithEmail(users, 'elmahead@omatom.com')); // {объект п
 // от min до  max лет (поле age).
 
 const getUsersWithAge = (users, min, max) => {
-  return users.filter(({ age }) => age > min && age < max);
+  return users.filter(({ age }) => age >= min && age <= max);
 };
 
 console.log(getUsersWithAge(users, 20, 30)); // [объект Ross Vazquez, объект Elma Head, объект Carey Barr]
